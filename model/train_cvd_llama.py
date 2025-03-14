@@ -215,22 +215,7 @@ class CustomDataCollator:
             elif n > self.max_func_num:
                 code_id = code_id[:self.max_func_num, :, :]
             code_ids_output[i] = code_id
-        # code_ids = torch.stack(code_ids, dim=0)
 
-        # # 对adj进行填充至self.max_func_num * self.max_func_num
-        # for i in range(len(adj_list)):
-        #     adj = adj_list[i]
-        #     n = adj.shape[0]
-        #     if n < self.max_func_num:
-        #         padding_size = self.max_func_num - n
-        #         padding_tensor = torch.zeros(padding_size, adj.shape[1], dtype=adj.dtype, device=adj.device)
-        #         adj = torch.cat([adj, padding_tensor], dim=0)
-        #         padding_cols = torch.zeros(self.max_func_num, padding_size, dtype=adj.dtype, device=adj.device)
-        #         adj = torch.cat([adj, padding_cols], dim=1)
-        #     elif n > self.max_func_num:
-        #         adj = adj[:self.max_func_num, :self.max_func_num]
-        #     adj_list[i] = adj
-        # adj_list = torch.stack(adj_list).to(f'cuda:{local_rank}')
 
         code_ids_output = torch.stack(code_ids_output).to(f'cuda:{local_rank}')
         code_input = code_ids_output.to('cpu')  # [bsz, 10, 1024, 1024]

@@ -38,6 +38,7 @@ Using the following commands:
 ```
 sh model/train_cvd.sh
 ```
+You should change the code slightly according to your task. eg. if pretraining task use `LazyPretrainDataset` instead of `LazySupervisedDataset`. And changing the code in preprocess function.
 
 ## Inference
 We provide inference pipline in `model/pipeline.py` and provide tree task type in our paper.
@@ -58,4 +59,4 @@ cd ../..
 3. ContextualVul
 
 ## Checkpoints
-We will relase our model checkpoints soon.
+We will relase our model checkpoints [cvd-llama.zip](https://pan.baidu.com/s/1UxRIChvmjxn4PHI_Zb-r7g?pwd=f4ja).
